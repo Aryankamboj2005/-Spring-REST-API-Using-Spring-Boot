@@ -1,21 +1,26 @@
 package com.Aryan.SimpleWebApp.service;
 
-import com.Aryan.SimpleWebApp.Model.product;
+import com.Aryan.SimpleWebApp.model.Product;
 import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
-// make the object of the class so that we can uuse it at any other place
 public class productService {
 
-    List<product> products = Arrays.asList(
-            new product(100, "laptop", 101),
-            new product(50, "mouse", 102),
-            new product(150, "camera", 103)
-    );
+    List<Product> products = Arrays.asList(
+            new Product(101, "laptop", 100),
+            new Product(102, "mouse", 50),
+            new Product(103, "camera", 150));
 
-    public List<product> getProduct() {
+    public List<Product> getProduct() {
         return products;
+    }
+
+    public Product getProductById(int prodId) {
+        return products.stream()
+                .filter(p -> p.getProductId() == prodId)
+                .findFirst()
+                .orElse(new Product(0, "No Item Found", 0));
     }
 }
