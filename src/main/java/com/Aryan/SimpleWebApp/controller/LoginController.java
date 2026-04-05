@@ -1,10 +1,10 @@
-package com.Aryan.SimpleWebApp;
+package com.Aryan.SimpleWebApp.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController // to link the webpage with the spring boot
-public class RestControler
+public class LoginController
 {
     @RequestMapping("/")
     public String greeting()
