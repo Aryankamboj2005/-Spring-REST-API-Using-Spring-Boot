@@ -19,8 +19,8 @@ public class productService {
 
     public Product getProductById(int prodId) {
         return products.stream()
-                .filter(p -> p.getProductId() == prodId)
-                .findFirst()
-                .orElse(new Product(0, "No Item Found", 0));
+                .filter(p -> p.getProductId() == prodId) // this will search the product by id
+                .findFirst() // Return the first occurrence
+                .orElse(new Product(0, "No Item Found", 0)); // if no item is found 
     }
 }
